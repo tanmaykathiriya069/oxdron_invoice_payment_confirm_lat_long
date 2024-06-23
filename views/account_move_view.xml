@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- INHERITED ACCOUNT MOVE FORM VIEW -->
+    <record id="inherit_view_account_move_form" model="ir.ui.view">
+        <field name="name">account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/div[@name='button_box']" position="inside">
+                <field name="invoice_payment_ids" invisible="1" />
+                <button name="action_show_payment" class="oe_stat_button"
+                    icon="fa-credit-card" type="object" help="View of payment list"
+                    invisible="not invoice_payment_ids"
+                    >
+                    <div class="o_form_field o_stat_info">
+                        <span class="o_stat_text">Payments</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
